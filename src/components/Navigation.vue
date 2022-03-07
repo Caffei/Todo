@@ -1,11 +1,6 @@
 <template>
-  <q-item
-    :href="{link}"
-    clickable >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+  <q-item :to="link" exact clickable class="text-grey-4">
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 
@@ -19,19 +14,19 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: 'Navigation',
+  name: "Navigation",
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
 
     caption: {
       type: String,
-      default: ''
+      default: "",
     },
 
     link: {
@@ -40,8 +35,8 @@ export default defineComponent({
 
     icon: {
       type: String,
-      default: ''
-    }
-  }
-})
+      default: "",
+    },
+  },
+});
 </script>

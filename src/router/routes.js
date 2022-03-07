@@ -6,6 +6,9 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/PageToDo.vue') },
       { path: '/settings', component: () => import('pages/PageSettings.vue') },
+            { path: '/memory', component: () => import('pages/Memory.vue') },
+
+
     ]
   },
 

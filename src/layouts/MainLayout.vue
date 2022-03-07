@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
+  <q-layout view="lhh lpR lFr">
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -11,11 +11,15 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
+        <q-toolbar-title class="absolute-center"> Multi </q-toolbar-title>
+        <q-chip size="lg" color="secondary" class="absolute-right">
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+          </q-avatar>
+          Naajak
+        </q-chip>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div>Todo</div>
       </q-toolbar>
     </q-header>
 
@@ -23,19 +27,15 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
+      class="bg-primary"
     >
-      <q-list>
-        <q-item-label
-          header
-        >
-          Navigation
-        </q-item-label>
+      <q-list dark>
+        <q-item-label header> Navigation </q-item-label>
 
         <Navigation
           v-for="link in navigationList"
           :key="link.title"
           v-bind="link"
-          props=""
         />
       </q-list>
     </q-drawer>
@@ -47,43 +47,48 @@
 </template>
 
 <script>
-import Navigation from 'components/Navigation.vue'
+import Navigation from "components/Navigation.vue";
 
 const navigationList = [
   {
-    title: 'Todo',
-    caption: 'Todo list',
-    icon: 'view_list',
-    link: '/'
+    title: "Todo",
+    caption: "Todo list",
+    icon: "view_list",
+    link: "/",
   },
   {
-    title: 'Settings',
-    caption: 'Change settings',
-    icon: 'settings_input_component',
-    link: '/settings'
+    title: "Memory",
+    caption: "Memory",
+    icon: "view_carousel",
+    link: "/memory",
   },
-
+  {
+    title: "Settings",
+    caption: "Change settings",
+    icon: "settings",
+    link: "/settings",
+  },
 ];
 
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
-  name: 'MainLayout',
+  name: "MainLayout",
 
   components: {
-    Navigation
+    Navigation,
   },
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+  setup() {
+    const leftDrawerOpen = ref(false);
 
     return {
       navigationList,
       leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-})
+      toggleLeftDrawer() {
+        leftDrawerOpen.value = !leftDrawerOpen.value;
+      },
+    };
+  },
+});
 </script>
